@@ -1,14 +1,13 @@
-"use client";
-
+import { notFound } from "next/navigation";
 import React from "react";
 
-interface UserProps {
+interface Props {
   params: { id: number };
 }
 
-const User = ({ params: { id } }: UserProps) => {
-  console.log("id", id);
-  return <div>User {id}</div>;
+const User = ({ params: { id } }: Props) => {
+  if (id > 10) notFound();
+  return <div>user page {id}</div>;
 };
 
 export default User;
